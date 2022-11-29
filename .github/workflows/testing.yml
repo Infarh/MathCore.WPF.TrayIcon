@@ -1,0 +1,34 @@
+name: Testing
+
+on: [push, pull_request]
+
+env:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+  DOTNET_NOLOGO: true
+
+jobs:
+  test:
+    name: Testing
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Use .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+          
+      - name: Cache NuGet  
+        uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget
+            
+      - name: Restore
+        run: dotnet restore MathCore.WPF.TrayIcon/MathCore.WPF.TrayIcon.csproj
+          
+      - name: Building
+        run: dotnet build MathCore.WPF.TrayIcon --no-restore -c Debug
