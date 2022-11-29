@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net7.0-windows;net6.0-windows;net5.0-windows;netcoreapp3.1-windows;net4.8-windows;net4.7-windows;net4.6.1-windows</TargetFrameworks>
+    <!--<TargetFramework>net7.0-windows</TargetFramework>-->
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <DocumentationFile></DocumentationFile>
+    <NoWarn>
+      0436;
+      1570;
+      8600;8601;8602;8603;8604;8605;8612;8618;8619;8620;8621;8622;8625;8629;
+      8714;8765;8767;8768;8769;
+      NETSDK1138
+    </NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <DocumentationFile>$(MSBuildProjectName.Replace(" ", "_")).xml</DocumentationFile>
+    <NoWarn>
+      1570;1573;1574;
+      1701;1702;8618;1591;
+      0436;
+      8600;8601;8602;8603;8604;8605;8606;8607;8612;8618;8619;8620;8621;8622;8625;8629;
+      8714;8765;8767;8768;8769;
+      NETSDK1138
+    </NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net7.0-windows'">
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'!='net7.0-windows'">
+    <PackageReference Include="System.Drawing.Common" Version="[6.0.0]" />
+  </ItemGroup>
+
+</Project>
