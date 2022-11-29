@@ -9,6 +9,26 @@
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <Version>0.0.0</Version>
+    <PackageReleaseNotes>
+      Инициалзация пакета
+    </PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>Shmachilin P.A.</Authors>
+    <Description>Библиотека инструментов для добавления иконки в область возле часов</Description>
+    <Copyright>shmachilin@gmail.com</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/infarh/mathcore.wpf.trayicon</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/infarh/mathcore.wpf.trayicon.git</RepositoryUrl>
+    <PackageTags>wpf;toolkit;trayicon</PackageTags>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+  </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
     <DocumentationFile></DocumentationFile>
     <NoWarn>
